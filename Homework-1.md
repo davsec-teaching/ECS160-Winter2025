@@ -9,7 +9,7 @@ _Learning objectives:_
 
 _Problem Statement:_
 
-You are provided with an `input.json` file that consists ~10,000 social media posts. Your goal is to write a Java program that computes the average number of comments per post, average interval between comments (for posts which have comments), the average number of posts and comments per user. Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments.
+You are provided with an `input.json` file that consists ~10,000 social media posts. Your goal is to write a Java program that computes the average number of comments per post, average interval between comments (for posts which have comments), the average number of posts and comments per user. Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments. The full path of the `input.json` file will also be provided on the command line.
 
 
 First, spawn a MongoDB instance, create a database `socialmedia`, and store the `input.json` to the database. This step should happen only once, _only if_ the database doesn't already exist and isn't populated.
