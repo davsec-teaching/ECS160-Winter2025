@@ -5,7 +5,7 @@
 _Learning objectives:_ 
 1. Java basics: Encapsulation, Inheritance, File I/O, Exceptions.
 2. Design pattern: Recursion, Composite design pattern, Singleton design pattern.
-3. Testing: JUnit, mock-testing, Github integration.
+3. Testing: JUnit, mock-testing, Github integration via Github Actions.
 4. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces.
 
 _Problem Statement:_
@@ -93,7 +93,24 @@ Create a `Analyzer` interface class with two concrete sub-classes for the non-we
 
 
 **Testing**
-Write JUnit test cases for these analyses. Create Github Actions so that these test-cases are executed when anyone pushes to this branch. Add a [badge](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge) to your Repository's README.md that shows the status of the build tests.
+We will write JUnit test cases for the Analysis classes designed in the previous step. Read more about JUnits [here](https://junit.org/junit5/docs/current/user-guide/).
+
+To use JUnit testing framework, we first will have to add the JUnit jar library to `pom.xml` and run `mvn clean install` in IntelliJ terminal.
+
+````
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.9.3</version> 
+    <scope>test</scope>
+</dependency>
+````
+
+We will create a new class under the `tests/` directory. If your basic analyzer is called `BasicAnalyzer.java`, then the convention is that your test class should be called `BasicAnalyzerTest.java`. In that class add separate JUnit test methods to test each of the functions of the BasicAnalyzer.java class. Do the same for the weighted analysis class. Make sure to test all corner cases, such as empty posts, empty thread, _very_ long posts, and so on. We will run our own set of JUnit tests on the code, so it is in your benefit if you thoroughly test your code. Add all the required assertion checks.
+
+We will set up a Continuous Integration pipeline where everytime we push, the Maven actions to build and test the application are carried out. Check out [this](https://docs.github.com/en/actions/writing-workflows/quickstart) for basics of Github actions and [Github Actions: Maven](https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven) for more Maven specific information.
+
+We will add a badge indicating the status of our build to our project page. First, create a `README.md` at the top-level of the repository. Then, click on the `Actions` tab on the main project repository. Then, click on the name of the action on the left panel. In the right part of the screen, you'll see the ellipsis (...). Click on `Create status badge`. This will give you the Markdown text that you can add to the `README.md`.
 
 **_Submission_**
 
