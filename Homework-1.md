@@ -4,25 +4,98 @@
 
 _Learning objectives:_ 
 1. Java basics: Encapsulation, Inheritance, File I/O, Exceptions.
-2. Design pattern: Composite design pattern, Singleton design pattern.
+2. Design pattern: Recursion, Composite design pattern, Singleton design pattern.
 3. Testing: JUnit, mock-testing, Github integration.
+4. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces.
 
 _Problem Statement:_
 
-You are provided with an `input.json` file that consists ~10,000 social media posts. Your goal is to write a Java program that computes the average number of comments per post, average interval between comments (for posts which have comments), the average number of posts and comments per user. Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments. The full path of the `input.json` file will also be provided on the command line.
+You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Your goal is to write a Java program that computes certain basic statistics for the provided posts. These statistics are---the total number of posts, the average number of comments per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments. The full path of the `input.json` file will also be provided on the command line.
+
+**Adding library dependencies.**
+
+First, add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. 
+
+````
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>1.5.0</version> <!-- Use the latest version -->
+        </dependency>
+
+    </dependencies>
+````
+
+**Class design**
+Study the `input.json` file provided. JSON (Javascript Object Notation) is a popular data format for exchanging data between applications. Each JsonObject consists of multiple key-value pairs. Read about [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) here.
+
+Every social media post can either be a leaf post or consist of child posts, depending on whether or not the `thread` object contains a `replies` key or not. The structure of the JSON document is as follows:
+````
+{
+    "feed": [
+        {
+            "thread": {
+                "$type": "app.bsky.feed.defs#threadViewPost",
+                "post": { ... // post contents },
+                "replies" : {
+                      "post": { .... // reply post contents },
+                       ... // other stuff
+                      }
+                }
+         },
+         {
+           "thread": { ... // thread contents as above }
+         }
+         ....
+      ]
+}               
+````
+The structure describes a nested structure for each thread, where each post can have multiple replies.
+1. The `feed` key has a `JSonArray` consisting of multiple `JsonObjects` mapping to the key `thread`.
+2. The JSONObject mapping to the `thread` key consists of many key-value pairs. The ones we are interested in are `post` and `replies`.
+3. `post` maps to a JsonObject for the post.
+4. `replies` maps to a JsonArray, where each `reply` JSonObject consists of a key-value pair for `post`.
+
+Use the concepts of Encapsulation, Inheritance, and the _Composite design pattern_ to model the structure described above. Note that you can model this in many different correct ways. To design the classes, you should ask yourself which key-value pairs from the Json you'll need to compute the desired statistics and create fields for these keys in the class. You may or may not choose to use Inheritance, but you should likely use the Composite design pattern to model the relationship where a `Thread` can contain many `Replies`.
+
+**JSON parsing and Statistical Analysis**
+
+We will use (Gson)[https://github.com/google/gson] to parse the `input.json` file. Here is some code to get you started.
+
+```
+        URL resource = JsonDeserializer.class.getClassLoader().getResource("input.json");
+
+        JsonParser parser = new JsonParser();
+
+        JsonElement element = parser.parse(new FileReader(resource.toURI().getPath()));
+
+        if (element.isJsonObject()) {
+            JsonObject jsonObject = element.getAsJsonObject();
+
+            JsonArray feedArray = jsonObject.get("feed").getAsJsonArray();
+            for (JsonElement feedObject: feedArray) {
+                // Check if you have the thread key 
+                if (feedObject.getAsJsonObject().has("thread")) {
+                    // parse the post and any replies (recursively)? 
+                } 
+            }
+        }
+```
+
+While parsing the Json file, load the Json objects into the Java classes for the _Composite_ pattern designed earlier.
+Create a `Analyzer` interface class with two concrete sub-classes for the non-weighted and weighted calculations. Invoke the right analysis depending on the configuration option provided.
 
 
-First, spawn a MongoDB instance, create a database `socialmedia`, and store the `input.json` to the database. This step should happen only once, _only if_ the database doesn't already exist and isn't populated.
-
-Create a `Analyzer` interface class with two concrete sub-classes for the non-weighted and weighted calculations. Create a _Singleton_ class to store the configuration option(s) passed to the command line. In this homework, it will pass a single command line option `weighted=true|false`. 
-
-Every social media post can either be a leaf post or consist of child posts. Use the _Composite design pattern_ to model this. 
-
-Load the JSON items into the Java classes for the _Composite_ pattern designed earlier and invoke the weighted or non-weighted analysis.
-
+**Testing**
 Write JUnit test cases for these analyses. Create Github Actions so that these test-cases are executed when anyone pushes to this branch. Add a [badge](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge) to your Repository's README.md that shows the status of the build tests.
 
-_Submission_
+**_Submission_**
 
 Please commit your code to the Github repo and tag it. In a text file specify the following:
 1. Link to your github and tag. This link should show the "tests passed" logo.
