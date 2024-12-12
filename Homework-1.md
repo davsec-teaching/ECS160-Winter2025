@@ -10,7 +10,7 @@ _Learning objectives:_
 
 _Problem Statement:_
 
-You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Your goal is to write a Java program that computes certain basic statistics for the provided posts. These statistics are---the total number of posts, the average number of comments per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments. The full path of the `input.json` file will also be provided on the command line.
+You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Your goal is to write a Java program that computes certain basic statistics for the provided posts. These statistics are---the total number of posts, the average number of comments per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average (TODO: specify formula) that depends on the length of the post or comments. The full path of the `input.json` file will also be provided on the command line.
 
 **Adding library dependencies.**
 
