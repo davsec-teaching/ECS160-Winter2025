@@ -1,6 +1,6 @@
 # ECS160-HW2
 
-## Problem: Moderation, sentiment analysis, and tagging of social media posts
+## Problem: Moderation, and tagging of social media posts
 
 _Learning objectives_
 1. Software architecture
@@ -9,7 +9,6 @@ _Learning objectives_
    - Message passing using REST API
 3. Libraries and Frameworks:
    - Spring Boot (for Microservices)
-   - Stanford NLP library (for sentiment analysis)
 
 _Necessary background knowledge_
 1. Java annotations
@@ -24,8 +23,9 @@ depending on the functionality of the microservice.
 
 - Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service returns `FAILED` if the post content fails the moderation. If it succeeds, it forwards the request to the next microservice. It will return the
 results of the second microservice to the client.
-- Microservice 2: A sentiment analysis service that will use the [Stanford NLP library](https://stanfordnlp.github.io/CoreNLP/sentiment.html) to perform sentiment analysis on the contents of the post and tag a `sentiment` field to the post and return it.
-For example, this service could analyze a post `"Today was a great day. I feel happy"` and determine that the post depicts happiness and tag it as `"Today was a great day. I feel happy. #HAPPY"`. Feel free to be creative with this.
+- Microservice 2: A tagging service that will analyze the contents of the post and tag the post if it is discussing software security. To perform this check you will match the contents of the post against the list of security keywords. The service will return either `#security` (if the contents of the post match any of the security keywords), or an empty string if it does not. Sample keywords to match against are `[security, encryption,
+decryption, Diffie Helman, password, ...]`.
+For example, this service could analyze a post `"We should always encrypt passwords"` and return `#security`.
 
 For each post and reply you will send an individual request to the microservice. Make sure to execute the pipeline on both posts _and_ their replies.
 
