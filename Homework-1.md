@@ -10,11 +10,41 @@ _Learning objectives:_
 
 _Problem Statement:_
 
-You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Your goal is to write a Java program that computes certain basic statistics for the provided posts. These statistics are---the total number of posts, the average number of comments per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average (TODO: specify formula) that depends on the length of the post or comments. The full path of the `input.json` file will also be provided on the command line.
+You are provided with an `input.json` file located in that consists of thousands of social media posts from [Bluesky](www.bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `top-level
+post`.
+
+Your goal is to write a Java program that computes certain basic statistics for the provided posts and replies. These statistics are---the total number of posts, the average number of replies per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments for the first two statistics (total number of posts, average number of replies per post). Weighted average: The goal of the weighted average computation is to provide more weightage for longer posts. The formula for the weight of a post:
+
+$Weight = (1 + (NumOfWordsInPost/NumOfWordsInLongestPost)) $
+
+Therefore, to compute the average number of replies, we will first count $NumOfWordsInLongestPost$. Then, for
+each reply to each post, we will compute the $Weight$ of that reply, using the above formula. Then, we will compute the
+total number of posts as follows---
+
+$WeightedTotalPosts = (\sum_{n=1}^N  (Weight_n) )  $
+
+Here, $N$ is the total number of posts, and $Weight_n$ is the weight of the post $n$.
+
+And, we will compute
+the average number of replies, as follows---
+
+$WeightedAvgNumReplies = (\sum_{n=1}^N (\sum_{m=1}^M (Weight_m) ) / N $
+
+Here, $N$ is the total number of posts, $M$ is the total replies of post $n$. $Weight_m$ is the weight of the reply $m$. 
+
+The full path of the `input.json` file will also optionally be provided on the command line. If no option is provided, then the `input.json` file provided in `src/resources/input.json` should be used.
+
+**Getting started**
+We will use the [IntelliJ IDE](https://www.jetbrains.com/help/idea/getting-started.html) for all our development, testing, and deployment tasks. Make sure to download and install the Community Edition. 
+
+Once you have downloaded and installed IntelliJ IDE, clone the repository containing the skeleton code https://github.com/davsec-teaching/ECS160-HW1-skeleton, and open it as a project in the IntelliJ IDE.
+
+We will use [Maven](https://maven.apache.org/) to manage all library dependencies. We need a library to parse JSON files, 
+we will use Google's Gson for that. We also need a library to parse the command line options. We will use Apache Commons's CLI
+library for that task.
 
 **Adding library dependencies.**
-
-First, add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. 
+Add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. 
 
 ````
     <dependencies>
@@ -33,7 +63,7 @@ First, add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Mav
 ````
 
 **Class design**
-Study the `input.json` file provided. JSON (Javascript Object Notation) is a popular data format for exchanging data between applications. Each JsonObject consists of multiple key-value pairs. Read about [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) here.
+Study the `input.json` file provided. JSON (Javascript Object Notation) is a popular data format for exchanging data between applications. Each JsonObject consists of multiple key-value pairs. You can find more information about [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) here. It will also be covered in the class.
 
 Every social media post can either be a leaf post or consist of child posts, depending on whether or not the `thread` object contains a `replies` key or not. The structure of the JSON document is as follows:
 ````
