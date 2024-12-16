@@ -12,8 +12,8 @@ _Learning objectives_
 
 _Necessary background knowledge_
 1. Java annotations
-2. HTTP Get and Post methods. (If this is new to you check out the resource at [w3schools](https://www.w3schools.com/tags/ref_httpmethods.asp)]
-3. Basic networking concepts such as ports, etc.
+2. HTTP Get and Post methods. (See [w3schools](https://www.w3schools.com/tags/ref_httpmethods.asp)]
+3. Basic networking concepts such as IP address, ports, etc.
 
 _Problem Statement_
 
@@ -25,19 +25,21 @@ depending on the functionality of the microservice.
 results of the second microservice to the client.
 - Microservice 2: A tagging service that will analyze the contents of the post and tag the post if it is discussing software security. To perform this check you will match the contents of the post against the list of security keywords. The service will return either `#security` (if the contents of the post match any of the security keywords), or an empty string if it does not. Sample keywords to match against are `[security, encryption,
 decryption, Diffie Helman, password, ...]`.
-For example, this service could analyze a post `"We should always encrypt passwords"` and return `#security`.
+For example, this service could analyze a post `"We should always encrypt passwords"` and return `#security`. You are free to use other more complex analysis if you wish. If you do, please specify the details of this analysis
+in the handout. 
 
 For each post and reply you will send an individual request to the microservice. Make sure to execute the pipeline on both posts _and_ their replies.
 
-**Implementing one microservice**
+**Implementing a microservice**
 
 We will use [Spring Boot](https://spring.io/projects/spring-boot) as our microservices framework. Spring Boot uses Java Annotations to annotate the services. Check out this
-[tutorial](https://codecrunch.org/creating-a-post-and-get-request-springboot-ff6e82a5d46b) for using Spring Boot 
-with HTTP Post requests. We will create REST API endpoints for these microservices. For more information on REST API check out [this](https://www.redhat.com/en/topics/api/what-is-a-rest-api) link. 
+[tutorial](https://codecrunch.org/creating-a-post-and-get-request-springboot-ff6e82a5d46b) for how to use Spring Boot 
+with HTTP Post requests. 
+We will create REST API endpoints for these microservices. For more information on REST API check out [this](https://www.redhat.com/en/topics/api/what-is-a-rest-api) link. 
+REST APIs can support any HTTP methods including `GET`, `POST`, `PUT`, `DELETE` and so on. In our case we will use the HTTP `POST` method to send the request to the microservice.
 
-REST APIs can support any HTTP methods including `GET`, `POST`, `PUT`, `DELETE` and so on. In this case we will use the HTTP `POST` method to send the request to the microservice.
-
-A Spring Boot microservice should at least consist of a `SpringBootApplication` and a `Controller`. The Controller specifies the REST endpoint (the url the service is bound to). 
+A Spring Boot microservice should at least consist of a `SpringBootApplication` and a `Controller`. The `SpringBootApplication` is a Java class that is annotated with `@SpringBootApplication.` 
+This class will implement the `public static void main(..)` function as shown below. 
 
 Sample code for a Spring Boot service application is as follows. The class must be annotated with `@SpringBootApplication`. 
 ```
@@ -54,7 +56,7 @@ public class ModerationService {
 }
 ```
 
-Sample code for a Controller is as follows. The controller class must be annotated with the `RestController` annotation. We will be using the `HTTP Post` method to send the request to the microservice, so we annotate the function that implements the REST endpoint
+The Controller specifies the REST endpoint (the url the service is bound to). Sample code for a Controller is as follows. The controller class must be annotated with the `RestController` annotation. We will be using the `HTTP Post` method to send the request to the microservice, so we annotate the function that implements the REST endpoint
 as `@PostMapping("/<endpoint_url>")`. The function itself takes a single argument that maps every parameter of the HTTP Post request into an object of a Java class. This argument must be annotated with the annotation `RequestBody`.
 In this sample code, we create a Java class `MyRequest` with a single field `postContent` which
 will encapsulate the contents of the post message. The Spring Boot framework will automatically create an instance of the `RequestBody` class and populate it with the request parameters from the HTTP `POST` method.
@@ -123,8 +125,9 @@ curl -X POST http://localhost:30000/moderate -H "Content-type: application/json"
 Develop the second microservice the same way as the first. Create a separate project for it and assign it a different port. The moderation microservice should invoke the tagging microservice only if the moderation passes.
 
 To chain the microservices we need to invoke the second microservice from the first. We will use the `HttpClient` provided by the Java standard libraries to invoke the second microservice from the first. Sample code
-for that is as follows. Remember that we need to send a Json request formatted as `{"postContent": "This is a sample post"}` over HTTP Post. Check out the tutorial [here](https://openjdk.org/groups/net/httpclient/intro.html) for documentation on how to use `HttpClient`.
+for that is as follows. Remember that we need to send a Json request formatted as `{"postContent": "This is a sample post"}` over HTTP Post. Check out the tutorial [here](https://openjdk.org/groups/net/httpclient/intro.html) for documentation on how to use `HttpClient`. As always add JUnit test cases for your microservices and verify that they pass.
 
-Invoke the client using `curl` as shown above. This time it should print `#security` if the post contains a security-related keyword.
+Invoke the client using `curl` as shown above. This time it should print `#security` if the post contains a security-related keyword. And finally, write a third Java application that will invoke this microservice
+pipeline for each of the top-level posts in `input.json`.
 
-As always add JUnit test cases for your microservices and verify that they pass.
+
