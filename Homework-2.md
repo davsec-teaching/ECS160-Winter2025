@@ -21,7 +21,7 @@ You are provided with an `input.json` file that consists of thousands of social 
 But this time instead of running basic statistical analysis on these posts, you will design a pipeline of microservices that consists of the two microservices described. Each microservice will take the contents of a single message as input and process it,
 depending on the functionality of the microservice.
 
-- Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service returns `FAILED` if the post content fails the moderation. If it succeeds, it forwards the request to the next microservice. It will return the
+- Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service should return `FAILED` if the post content fails the moderation. If it succeeds, it should forward the request to the next microservice and will ultimately return the
 results of the second microservice to the client.
 - Microservice 2: A tagging service that will analyze the contents of the post and tag the post if it is discussing software security. To perform this check you will match the contents of the post against the list of security keywords. The service will return either `#security` (if the contents of the post match any of the security keywords), or an empty string if it does not. Sample keywords to match against are `[security, encryption,
 decryption, Diffie Helman, password, ...]`.
@@ -32,7 +32,10 @@ For each post and reply you will send an individual request to the microservice.
 
 **Implementing a microservice**
 
-We will use [Spring Boot](https://spring.io/projects/spring-boot) as our microservices framework. Spring Boot uses Java Annotations to annotate the services. Check out this
+We will use [Spring Boot](https://spring.io/projects/spring-boot) as our microservices framework. Please clone the repository at https://github.com/davsec-teaching/ECS160-HW2-skeleton. This repository comes with
+a `pom.xml` file that already contains the library dependencies for Spring Boot. (If you're interested in setting this up yourself, check out https://start.spring.io/). The provided repository contains a `ModerationService.java` source code file that you can use to get started. 
+
+Spring Boot uses Java Annotations to annotate the services. Check out this
 [tutorial](https://codecrunch.org/creating-a-post-and-get-request-springboot-ff6e82a5d46b) for how to use Spring Boot 
 with HTTP Post requests. 
 We will create REST API endpoints for these microservices. For more information on REST API check out [this](https://www.redhat.com/en/topics/api/what-is-a-rest-api) link. 
