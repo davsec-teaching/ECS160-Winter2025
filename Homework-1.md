@@ -10,7 +10,7 @@ _Learning objectives:_
 
 _Problem Statement:_
 
-You are provided with an `input.json` file located in that consists of thousands of social media posts from [Bluesky](www.bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `top-level
+You are provided with an `input.json` file located in that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `top-level
 post`.
 
 Your goal is to write a Java program that computes certain basic statistics for the provided posts and replies. These statistics are---the total number of posts, the average number of replies per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments for the first two statistics (total number of posts, average number of replies per post). Weighted average: The goal of the weighted average computation is to provide more weightage for longer posts. The formula for the weight of a post:
