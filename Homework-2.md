@@ -1,4 +1,4 @@
-# ECS160-HW1
+# ECS160-HW2
 
 ## Problem 1: Basic analysis of social media posts 
 
@@ -10,7 +10,7 @@ _Learning objectives:_
 
 _Problem Statement:_
 
-You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW1-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `top-level
+You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW2-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `top-level
 post`.
 
 Your goal is to write a Java program that computes certain basic statistics for the provided posts and replies. These statistics are---the total number of posts, the average number of replies per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments for the first two statistics (total number of posts, average number of replies per post). Weighted average: The goal of the weighted average computation is to provide more weightage for longer posts. The formula for the weight of a post:
@@ -37,7 +37,7 @@ The full path of the `input.json` file will also optionally be provided on the c
 **Getting started**
 We will use the [IntelliJ IDE](https://www.jetbrains.com/help/idea/getting-started.html) for all our development, testing, and deployment tasks. Make sure to download and install the Community Edition. 
 
-Once you have downloaded and installed IntelliJ IDE, clone the repository containing the skeleton code https://github.com/davsec-teaching/ECS160-HW1-skeleton, and open it as a project in the IntelliJ IDE.
+Once you have downloaded and installed IntelliJ IDE, clone the repository containing the skeleton code https://github.com/davsec-teaching/ECS160-HW2-skeleton, and open it as a project in the IntelliJ IDE.
 
 We will use [Maven](https://maven.apache.org/) to manage all library dependencies. We need a library to parse JSON files, 
 we will use Google's Gson for that. We also need a library to parse the command line options. We will use Apache Commons's CLI
