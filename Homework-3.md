@@ -1,4 +1,4 @@
-# ECS160-HW2
+# ECS160-HW3
 
 ## Problem: Moderation, and tagging of social media posts
 
@@ -32,7 +32,7 @@ For each post and reply you will send an individual request to the microservice.
 
 **Implementing a microservice**
 
-We will use [Spring Boot](https://spring.io/projects/spring-boot) as our microservices framework. Please clone the repository at https://github.com/davsec-teaching/ECS160-HW2-skeleton. This repository comes with
+We will use [Spring Boot](https://spring.io/projects/spring-boot) as our microservices framework. Please clone the repository at https://github.com/davsec-teaching/ECS160-HW3-skeleton. This repository comes with
 a `pom.xml` file that already contains the library dependencies for Spring Boot. (If you're interested in setting this up yourself, check out https://start.spring.io/). The provided repository contains a `ModerationService.java` source code file that you can use to get started. 
 
 Spring Boot uses Java Annotations to annotate the services. Check out this
@@ -101,13 +101,13 @@ Run the application with `mvn spring-boot:run`.
 On a successful launch, you should see log messages similar to the following on the terminal.
 
 ````
-2024-12-11T20:51:18.604-08:00  INFO 20432 --- [hw2] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 30000 (http)
-2024-12-11T20:51:18.625-08:00  INFO 20432 --- [hw2] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-11T20:51:18.626-08:00  INFO 20432 --- [hw2] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
-2024-12-11T20:51:18.751-08:00  INFO 20432 --- [hw2] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-11T20:51:18.757-08:00  INFO 20432 --- [hw2] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1175 ms
-2024-12-11T20:51:19.188-08:00  INFO 20432 --- [hw2] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 30000 (http) with context path '/'
-2024-12-11T20:51:19.194-08:00  INFO 20432 --- [hw2] [           main] com.ecs160.hw2.ModerationService         : Started ModerationService in 2.082 seconds (process running for 2.372)
+2024-12-11T20:51:18.604-08:00  INFO 20432 --- [HW3] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 30000 (http)
+2024-12-11T20:51:18.625-08:00  INFO 20432 --- [HW3] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-11T20:51:18.626-08:00  INFO 20432 --- [HW3] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-11T20:51:18.751-08:00  INFO 20432 --- [HW3] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-11T20:51:18.757-08:00  INFO 20432 --- [HW3] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1175 ms
+2024-12-11T20:51:19.188-08:00  INFO 20432 --- [HW3] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 30000 (http) with context path '/'
+2024-12-11T20:51:19.194-08:00  INFO 20432 --- [HW3] [           main] com.ecs160.HW3.ModerationService         : Started ModerationService in 2.082 seconds (process running for 2.372)
 ````
 
 Once the microservice is up and running, you can test it by querying it using `curl`. 
