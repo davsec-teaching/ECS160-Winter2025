@@ -17,7 +17,7 @@ _Necessary background knowledge_
 
 _Problem Statement_
 
-You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Just as in HW1 you will parse these social media posts into Java classes. (You can reuse the code you have 
+You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Just as in HW1 and HW2 you will parse these social media posts into Java classes. (You can reuse the code you have 
 But this time instead of running basic statistical analysis on these posts, you will design a pipeline of microservices that consists of the two microservices described. Each microservice will take the contents of a single message as input and process it,
 depending on the functionality of the microservice.
 
