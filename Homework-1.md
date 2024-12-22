@@ -4,9 +4,8 @@
 
 _Learning objectives:_ 
 1. Java basics: Encapsulation, Inheritance, File I/O, Exceptions.
-2. Design pattern: Recursion, Composite design pattern, Singleton design pattern.
-3. Testing: JUnit, mock-testing, Github integration via Github Actions.
-4. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces.
+2. Testing: JUnit, continuous integration via Github Actions.
+3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces.
 
 _Problem Statement:_
 
@@ -92,7 +91,7 @@ The structure describes a nested structure for each thread, where each post can 
 3. `post` maps to a JsonObject for the post.
 4. `replies` maps to a JsonArray, where each `reply` JSonObject consists of a key-value pair for `post`.
 
-Use the concepts of Encapsulation, Inheritance, and the _Composite design pattern_ to model the structure described above. Note that you can model this in many different correct ways. To design the classes, you should ask yourself which key-value pairs from the Json you'll need to compute the desired statistics and create fields for these keys in the class. You may or may not choose to use Inheritance, but you should likely use the Composite design pattern to model the relationship where a `Thread` can contain many `Replies`.
+Use the concepts of Encapsulation, Inheritance, and Recursion to model the structure described above. Note that you can model this in many different correct ways. To design the classes, you should ask yourself which key-value pairs from the Json you'll need to compute the desired statistics and create fields for these keys in the class. You may or may not choose to use Inheritance, but you should likely use a "Composite design pattern" to model the relationship where a `Thread` can contain many `Replies`.
 
 **JSON parsing and Statistical Analysis**
 
