@@ -20,7 +20,7 @@ application's data model is completely decoupled from the persistence logic, you
 
 **Getting started**
 
-Start a new project and a new Github repo. Add all the dependencies in `pom.xml` from the previous
+Create a new IntelliJ project and sync it with a new Github repo. Add all the dependencies in `pom.xml` from the previous
 assignment that you think will be useful in this assignment. 
 
 We will persist the social media posts in a Redis database. [Redis](https://redis.io/) is a simple key-value store, which supports persistence. If you don't have redis installed, install it on your local machine by following the instructions 
