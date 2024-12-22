@@ -71,6 +71,8 @@ Redis comes with a command-line tool that you can use to test that the objects w
 redis-cli --scan | while read key; do echo "$key -> $(redis-cli GET "$key")"; done
 ```
 
+As always, create JUnit test cases to test the persistence framework. You can use Jedis in the JUnit test-case to verify that the object got persisted.
+
 **_Submission_**
 
 Please commit your code to the Github repo and tag it. Your submission should contain a single link to the repository and the tag. 
