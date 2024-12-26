@@ -9,6 +9,7 @@ _Learning objectives_
    - Message passing using REST API
 3. Libraries and Frameworks:
    - Spring Boot (for Microservices)
+   - LLM integration using ollama.
 
 _Necessary background knowledge_
 1. Java annotations
@@ -23,12 +24,9 @@ depending on the functionality of the microservice.
 
 - Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service should return `FAILED` if the post content fails the moderation. If it succeeds, it should forward the request to the next microservice and will ultimately return the
 results of the second microservice to the client.
-- Microservice 2: A tagging service that will analyze the contents of the post and tag the post if it is discussing software security. To perform this check you will match the contents of the post against the list of security keywords. The service will return either `#security` (if the contents of the post match any of the security keywords), or an empty string if it does not. Sample keywords to match against are `[security, encryption,
-decryption, Diffie Helman, password, ...]`.
-For example, this service could analyze a post `"We should always encrypt passwords"` and return `#security`. You are free to use other more complex analysis if you wish. If you do, please specify the details of this analysis
-in the handout. 
+- Microservice 2: A tagging service that will analyze the contents of the post and tag the post with a tag, like `#vacation` and `#happy`. You will invoke a locally running instance of [LLAMA-3](https://www.llama.com/) for the analysis (more later).
 
-For each post and reply you will send an individual request to the microservice. Make sure to execute the pipeline on both posts _and_ their replies.
+You will execute the pipeline on the top-10 most-liked top-level posts in `input.json`. For each of these ten top-level posts, you will send individual requests for both the post and any of its replies to the microservice. In other words, make sure to execute the pipeline on the 10 most-liked posts _and_ their replies.
 
 **Implementing a microservice**
 
@@ -130,7 +128,17 @@ Develop the second microservice the same way as the first. Create a separate pro
 To chain the microservices we need to invoke the second microservice from the first. We will use the `HttpClient` provided by the Java standard libraries to invoke the second microservice from the first. Sample code
 for that is as follows. Remember that we need to send a Json request formatted as `{"postContent": "This is a sample post"}` over HTTP Post. Check out the tutorial [here](https://openjdk.org/groups/net/httpclient/intro.html) for documentation on how to use `HttpClient`. As always add JUnit test cases for your microservices and verify that they pass.
 
-Invoke the client using `curl` as shown above. This time it should print `#security` if the post contains a security-related keyword. And finally, write a third Java application that will invoke this microservice
-pipeline for each of the top-level posts in `input.json`.
+Invoke the client using `curl` as shown above. This time it might print `#security` if the post contains a security-related keyword. And finally, write a third Java application that will invoke this microservice
+pipeline for each of the most-liked posts in `input.json`.
+
+**LLM integration**
+
+Local Language Models are perhaps the most exciting (or at least most hyped) thing happening currently in Computer Science right now. Meta has released their LLAMA foundational model as open source. For this assignment, we will first 
+run the LLAMA-3 model locally. Then we will query this model and ask it to tag our top-10 most-liked posts from `input.json`. 
+
+First install ollama from [here](https://ollama.com/download). 
+Then, follow the instructions [here](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart) to download the LLAMA-3 model on your local machine. 
+
+We will use the [Ollama4j](https://ollama4j.github.io) library to invoke the LLM from our Tagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a tag for this social media post` followed by the post itself.
 
 
