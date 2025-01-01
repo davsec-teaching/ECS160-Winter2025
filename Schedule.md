@@ -25,7 +25,7 @@ make sure you are refering to the latest versions.
   - (`2/5`, `2/7`) Spring Boot microservices ([Slides](slides/7_spring_boot))
 - Week 6
   - (`2/10`) **In-class Midterm**
-  - (`2/12`, `2/14`) Design patterns
+  - (`2/12`, `2/14`) Design patterns ([Slides](slides/8_design_patterns))
 - Week 7
   - (`2/17`) Holiday
   - (`2/19`, `2/21`) Design patterns contd.
