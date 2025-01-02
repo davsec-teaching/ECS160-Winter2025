@@ -35,5 +35,7 @@ query this model and ask it to hashtag our top-10 most-liked posts from input.js
 to the class, nor subclass the `Post` or `Thread` class. _(Which design pattern should you use?)_ You should then write a method `printHashTag()` that prints the hashtags for all posts and threads, including those
 that donot have a hashtag.
 
+You do not have to develop a microservice for this homework.
+
 **_Submission_**
 You will submit the code, the repository link with the branch, and a document outlining the design pattern you chose for each of these cases and why you chose them. 
