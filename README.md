@@ -18,8 +18,8 @@ The course has a formal prerequisite of ECS 140A, in addition to what is describ
 | **Instructor**      | Tapti Palit (tpalit@ucdavis.edu)                                                 |
 | **TA**              | Hsin-Ai Chen (xacchen@ucdavis.edu)                     |
 | **Lectures**        | MWF 9:00 AM - 9:50 AM in Wellman Hall 234              |
-| **Piazza**     | https://piazza.com/ucdavis/winter2024/ecs160001wq2025/home               |
 | **Discussion**      | W 10 AM - 10:50 AM in Chem 179                         |
+| **Piazza**     | https://piazza.com/ucdavis/winter2024/ecs160001wq2025/home               |
 | **Office Hours**    | W 1 PM - 2 PM in Academic Surge 2087                   |
 
 ### Schedule
@@ -87,7 +87,7 @@ Homework assignments are due 11:59 PM on the day of the deadline. Each group has
 
 UC Davis is dedicated to supporting the mental health and well-being of all students. 
 If you or someone you know is feeling overwhelmed, depressed, or in need of assistance, confidential mental health services are available through [Student Health and Counseling Services](https://shcs.ucdavis.edu/).
-Please feel free to contact me by scheduling separate office hours if you would like to discuss any such factors affecting your class performance. Additional accommodations might also be available to address these factors.
+Please also feel free to contact me by scheduling separate office hours if you would like to discuss any such factors affecting your class performance. Additional accommodations might also be available to address these factors.
 
 
 
