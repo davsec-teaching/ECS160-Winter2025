@@ -19,7 +19,7 @@ The course has a formal prerequisite of ECS 140A, in addition to what is describ
 | **TA**              | Hsin-Ai Chen (xacchen@ucdavis.edu)                     |
 | **Lectures**        | MWF 9:00 AM - 9:50 AM in Wellman Hall 234              |
 | **Discussion**      | W 10 AM - 10:50 AM in Chem 179                         |
-| **Piazza**     | https://piazza.com/ucdavis/winter2024/ecs160001wq2025/home               |
+| **Piazza**     | https://piazza.com/ucdavis/winter2024/ecs160winter2025/home               |
 | **Office Hours**    | W 1 PM - 2 PM in Academic Surge 2087                   |
 
 ### Schedule
