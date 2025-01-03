@@ -1,6 +1,6 @@
 # ECS160-HW3
 
-## Problem: Moderation, and tagging of social media posts
+## Problem: Moderation, and hashtagging of social media posts
 
 _Learning objectives_
 1. Software architecture
@@ -24,7 +24,7 @@ depending on the functionality of the microservice.
 
 - Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service should return `FAILED` if the post content fails the moderation. If it succeeds, it should forward the request to the next microservice and will ultimately return the
 results of the second microservice to the client.
-- Microservice 2: A tagging service that will analyze the contents of the post and tag the post with a tag, like `#vacation` and `#happy`. You will invoke a locally running instance of [LLAMA-3](https://www.llama.com/) for the analysis (more later).
+- Microservice 2: A hashtagging service that will analyze the contents of the post and tag the post with a hashtag, like `#vacation` and `#happy`. You will invoke a locally running instance of [LLAMA-3](https://www.llama.com/) for the analysis (more later).
 
 You will execute the pipeline on the top-10 most-liked top-level posts in `input.json`. For each of these ten top-level posts, you will send individual requests for both the post and any of its replies to the microservice. In other words, make sure to execute the pipeline on the 10 most-liked posts _and_ their replies.
 
@@ -123,7 +123,7 @@ curl -X POST http://localhost:30000/moderate -H "Content-type: application/json"
 
 **Chaining microservices to form a pipeline**
 
-Develop the second microservice the same way as the first. Create a separate project for it and assign it a different port. The moderation microservice should invoke the tagging microservice only if the moderation passes.
+Develop the second microservice the same way as the first. Create a separate project for it and assign it a different port. The moderation microservice should invoke the hashtagging microservice only if the moderation passes.
 
 To chain the microservices we need to invoke the second microservice from the first. We will use the `HttpClient` provided by the Java standard libraries to invoke the second microservice from the first. Sample code
 for that is as follows. Remember that we need to send a Json request formatted as `{"postContent": "This is a sample post"}` over HTTP Post. Check out the tutorial [here](https://openjdk.org/groups/net/httpclient/intro.html) for documentation on how to use `HttpClient`. As always add JUnit test cases for your microservices and verify that they pass.
@@ -134,11 +134,11 @@ pipeline for each of the most-liked posts in `input.json`.
 **LLM integration**
 
 Local Language Models are perhaps the most exciting (or at least most hyped) thing happening currently in Computer Science right now. Meta has released their LLAMA foundational model as open source. For this assignment, we will first 
-run the LLAMA-3 model locally. Then we will query this model and ask it to tag our top-10 most-liked posts from `input.json`. 
+run the LLAMA-3 model locally. Then we will query this model and ask it to hashtag our top-10 most-liked posts from `input.json`. 
 
 First install ollama from [here](https://ollama.com/download). 
 Then, follow the instructions [here](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart) to download the LLAMA-3 model on your local machine. 
 
-We will use the [Ollama4j](https://ollama4j.github.io) library to invoke the LLM from our Tagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a tag for this social media post` followed by the post itself.
+We will use the [Ollama4j](https://ollama4j.github.io) library to invoke the LLM from our Hashtagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a hashtag for this social media post` followed by the post itself.
 
 

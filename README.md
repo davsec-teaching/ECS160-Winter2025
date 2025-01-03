@@ -2,7 +2,7 @@
 ECS 160 will cover the fundamentals of software engineering. We will focus on the principles, methods, and tools used to design, develop, test, and maintain high-quality software systems.
 The course will focus on four main areas---software architecture, design patterns, software security, and quality control. 
 
-The course will consist of lectures, in-class hands-on exercises, and 4 homework assignments. The course expects the students to have basic to intermediary familiarity with object-oriented concepts
+The course will consist of lectures, in-class hands-on exercises, and 4 homework assignments. The course expects the students to have basic to intermediate familiarity with object-oriented concepts
 in Java, such as classes, inheritance, exceptions, and so on, and also have basic familiarity with C. We will try to revise OO fundamentals in Java during the first week of class, but students who do not have
 familiarity with _any_ OO language are advised to spend significant effort ramping up.
 
@@ -18,8 +18,8 @@ The course has a formal prerequisite of ECS 140A, in addition to what is describ
 | **Instructor**      | Tapti Palit (tpalit@ucdavis.edu)                                                 |
 | **TA**              | Hsin-Ai Chen (xacchen@ucdavis.edu)                     |
 | **Lectures**        | MWF 9:00 AM - 9:50 AM in Wellman Hall 234              |
-| **Piazza**     | https://piazza.com/class/m4a9mvpz8fg6rm                |
 | **Discussion**      | W 10 AM - 10:50 AM in Chem 179                         |
+| **Piazza**     | https://piazza.com/ucdavis/winter2024/ecs160winter2025/home               |
 | **Office Hours**    | W 1 PM - 2 PM in Academic Surge 2087                   |
 
 ### Schedule
@@ -29,7 +29,7 @@ The course schedule can be found [here](Schedule.md).
 The slides and homeworks will be posted well ahead of the lecture day, but can be updated any time to fix errors, improve clarity, and so on. Since the course website
 is hosted on Github, you can check the commit history to know what was updated.
 
-Lectures will be recorded (barring any technical snafu).
+Lectures will be recorded (TBD discussions).
 
 ### Grading
 
@@ -87,7 +87,7 @@ Homework assignments are due 11:59 PM on the day of the deadline. Each group has
 
 UC Davis is dedicated to supporting the mental health and well-being of all students. 
 If you or someone you know is feeling overwhelmed, depressed, or in need of assistance, confidential mental health services are available through [Student Health and Counseling Services](https://shcs.ucdavis.edu/).
-Please feel free to contact me by scheduling separate office hours if you would like to discuss any such factors affecting your class performance. Additional accommodations might also be available to address these factors.
+Please also feel free to contact me by scheduling separate office hours if you would like to discuss any such factors affecting your class performance. Additional accommodations might also be available to address these factors.
 
 
 
