@@ -18,7 +18,7 @@ make sure you are refering to the latest versions.
   - (`1/22`) Unit testing, mock testing, CI contd.
   - (`1/24`) Java annotations and reflections ([Slides](slides/5_annotations_and_reflection.pptx))
 - Week 4
-  - (`1/27`) Java reflections and reflections contd.
+  - (`1/27`) Java annotations and reflections contd.
   - (`1/29`) Software architecture ([Slides](slides/6_software_architecture.pptx))
 - Week 5
   - (`1/31`, `2/3`) Software architecture contd.
