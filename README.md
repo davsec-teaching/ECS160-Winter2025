@@ -2,7 +2,7 @@
 ECS 160 will cover the fundamentals of software engineering. We will focus on the principles, methods, and tools used to design, develop, test, and maintain high-quality software systems.
 The course will focus on four main areas---software architecture, design patterns, software security, and quality control. 
 
-The course will consist of lectures, in-class hands-on exercises, and 4 homework assignments. The course expects the students to have basic to intermediary familiarity with object-oriented concepts
+The course will consist of lectures, in-class hands-on exercises, and 4 homework assignments. The course expects the students to have basic to intermediate familiarity with object-oriented concepts
 in Java, such as classes, inheritance, exceptions, and so on, and also have basic familiarity with C. We will try to revise OO fundamentals in Java during the first week of class, but students who do not have
 familiarity with _any_ OO language are advised to spend significant effort ramping up.
 
