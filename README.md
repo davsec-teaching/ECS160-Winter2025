@@ -29,7 +29,7 @@ The course schedule can be found [here](Schedule.md).
 The slides and homeworks will be posted well ahead of the lecture day, but can be updated any time to fix errors, improve clarity, and so on. Since the course website
 is hosted on Github, you can check the commit history to know what was updated.
 
-Lectures will be recorded (barring any technical snafu).
+Lectures will be recorded (TBD discussions).
 
 ### Grading
 
