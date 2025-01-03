@@ -3,7 +3,7 @@
 The following is the schedule for ECS 160. Note that while most slides and homework assignment handouts
 will be uploaded significantly in
 advance of the lecture, the content can change any time to fix errors, improve clarity, and so on. So, please
-make sure you are refering to the latest versions.
+make sure you are referring to the latest versions.
 
 
 - Week 1
