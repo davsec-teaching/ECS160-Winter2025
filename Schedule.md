@@ -3,7 +3,7 @@
 The following is the schedule for ECS 160. Note that while most slides and homework assignment handouts
 will be uploaded significantly in
 advance of the lecture, the content can change any time to fix errors, improve clarity, and so on. So, please
-make sure you are refering to the latest versions.
+make sure you are referring to the latest versions.
 
 
 - Week 1
@@ -18,14 +18,16 @@ make sure you are refering to the latest versions.
   - (`1/22`) Unit testing, mock testing, CI contd.
   - (`1/24`) Java annotations and reflections ([Slides](slides/5_annotations_and_reflection.pptx))
 - Week 4
-  - (`1/27`) Java reflections and reflections contd.
+  - (`1/27`) Java annotations and reflections contd.
   - (`1/29`) Software architecture ([Slides](slides/6_software_architecture.pptx))
 - Week 5
-  - (`1/31`, `2/3`) Software architecture contd.
+  - (`1/31`) _**HW 1 due**_
+  - (`2/3`) Software architecture contd.
   - (`2/5`, `2/7`) Spring Boot microservices ([Slides](slides/7_spring_boot.pptx))
 - Week 6
   - (`2/10`) **In-class Midterm**
-  - (`2/12`, `2/14`) Design patterns ([Slides](slides/8_design_patterns.pptx))
+  - (`2/12`) Design patterns ([Slides](slides/8_design_patterns.pptx))
+  - (`2/14`) Design patterns contd, _**HW 2 due**_
 - Week 7
   - (`2/17`) Holiday
   - (`2/19`, `2/21`) Design patterns contd.
@@ -33,8 +35,10 @@ make sure you are refering to the latest versions.
   - (`2/24`, `2/26`) Design patterns contd.
   - (`2/28`) Software security ([Slides](slides/9_software_security.pptx))
 - Week 9
-  - (`3/3`, `3/5`, `3/7`) Software security contd.
+  - (`3/3`, `3/5`) Software security contd.
+  - (`3/7`) Software security contd, **_HW 3 due_**
 - Week 10
   - (`3/10`, `3/12`) Fuzz testing ([Slides](slides/10_fuzzing.pptx))
-  - (`3/141) Revision
+  - (`3/14`) Revision
 - (`3/17`) **Final**
+- (`3/21`) **_HW 4 due_**

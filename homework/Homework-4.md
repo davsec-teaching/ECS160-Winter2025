@@ -1,5 +1,6 @@
 # ECS160-HW4
 
+## _Due date: 3/21_
 ## Problem: Redesign and extend HW1 using design patterns
 
 _Learning objectives_
