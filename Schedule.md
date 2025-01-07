@@ -44,5 +44,4 @@ make sure you are referring to the latest versions.
   - (`3/10`, `3/12`) Fuzz testing ([Slides](slides/10_fuzzing.pptx))
   - (`3/12`) **_HW 4 discussed in class_**
   - (`3/14`) Revision
-- (`3/17`) **Final**
-- (`3/21`) **_HW 4 due_**
+- (`3/21`) **Final**, **_HW 4 due_**
