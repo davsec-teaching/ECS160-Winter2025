@@ -11,37 +11,34 @@ make sure you are referring to the latest versions.
   - (`1/8`) Java tools ([Slides](slides/2_java_tools_intellij_maven.pptx))
   - (`1/10`) Java and OO fundamentals ([Slides](slides/3_object_oriented_fundamentals.pptx))
 - Week 2
+  - (`1/13`) **_HW 1 discussed in class_**
   - (`1/13`, `1/15`) Java and OO fundamentals contd.
-  - (`1/15`) **_HW 1 discussed in class_**
   - (`1/17`) Unit testing, mock testing, CI ([Slides](slides/4_unit_testing_mocking_frameworks_CI.pptx))
 - Week 3
   - (`1/20`) Holiday
   - (`1/22`) Unit testing, mock testing, CI contd.
   - (`1/24`) Java annotations and reflections ([Slides](slides/5_annotations_and_reflection.pptx))
 - Week 4
-  - (`1/27`) Java annotations and reflections contd.
-  - (`1/29`) Software architecture ([Slides](slides/6_software_architecture.pptx))
+  - (`1/27`) Java annotations and reflections contd. **_HW 1 due_**
+  - (`1/29`) **_HW 2 discussed in Discussion_**
+  - (`1/29`, `1/31`) Software architecture ([Slides](slides/6_software_architecture.pptx))
 - Week 5
-  - (`1/31`) _**HW 1 due**_
   - (`2/3`) Software architecture contd.
-  - (`2/5`) **_HW 2 discussed in class_**
   - (`2/5`, `2/7`) Spring Boot microservices ([Slides](slides/7_spring_boot.pptx))
 - Week 6
   - (`2/10`) **In-class Midterm**
-  - (`2/12`) Design patterns ([Slides](slides/8_design_patterns.pptx))
-  - (`2/14`) Design patterns contd, _**HW 2 due**_
+  - (`2/12`) Design patterns ([Slides](slides/8_design_patterns.pptx)), **_HW 2 due, HW3 discussed in Discussion_**
+  - (`2/14`) Design patterns contd, 
 - Week 7
   - (`2/17`) Holiday
-  - (`2/19`) **_HW 3 discussed in class_**
   - (`2/19`, `2/21`) Design patterns contd.
 - Week 8
   - (`2/24`, `2/26`) Design patterns contd.
-  - (`2/28`) Software security ([Slides](slides/9_software_security.pptx))
+  - (`2/28`) Software security ([Slides](slides/9_software_security.pptx)) **_HW 3 due, HW4 discussed in class_**
 - Week 9
   - (`3/3`, `3/5`) Software security contd.
-  - (`3/7`) Software security contd, **_HW 3 due_**
+  - (`3/7`) Software security contd,
 - Week 10
   - (`3/10`, `3/12`) Fuzz testing ([Slides](slides/10_fuzzing.pptx))
-  - (`3/12`) **_HW 4 discussed in class_**
-  - (`3/14`) Revision
-- (`3/21`) **Final**, **_HW 4 due_**
+  - (`3/14`) Revision **_HW 4 due_**
+- (`3/21`) **Final**, 
