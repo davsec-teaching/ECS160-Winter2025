@@ -5,14 +5,13 @@
 _Learning objectives:_ 
 1. Java basics: Encapsulation, Inheritance, File I/O, Exceptions.
 2. Testing: JUnit, continuous integration via Github Actions.
-3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces, SQL for relational database.
+3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces, databases (NoSQL or SQL).
 
 _Problem Statement:_
 
 You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW1-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `standalone post`.
 
-Your goal is to write a Java program that first persists the posts and their replies in the Json file to a SQL database. You should use the [PostgreSQL](https://www.postgresql.org/download/) database for your application. 
-Make sure that every SQL record has an auto-incremented primary key, and that every reply has a foreign key to refer to its parent post's primary key.
+Your goal is to write a Java program that first caches the posts and their replies in the Json file to a database. You can use the [Redis](https://redis.io/) database for your application. When storing the posts and replies in the Redis database, you should make sure that it is possible to reconstruct the parent-child relationships of a post and its replies from the data stored. Alternatively, you can use a SQL database such as [PostgreSQL]() and use relationships defined by primary-key and foreign-keys to store the data.
 
 Then, your application should compute the following basic statistics for the provided posts and replies. These statistics are---the total number of posts, the average number of replies per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments for the first two statistics (total number of posts, average number of replies per post). Weighted average: The goal of the weighted average computation is to provide more weightage for longer posts. The formula for the weight of a post:
 
@@ -44,10 +43,10 @@ We will use [Maven](https://maven.apache.org/) to manage all library dependencie
 we will use Google's Gson for that, and a library to parse the command line options. We will use Apache Commons's CLI
 library for that task.
 
-Java presents a standard API called JDBC (Java Database Connectivity) to communicate with databases. Feel free to use the Postgres JDBC driver provided [here](https://github.com/pgjdbc/pgjdbc) to store (and load, in future assignments) the records from the PostgreSQL database.
+If you choose to use Redis database, you can use the [Jedis](https://github.com/redis/jedis) library to interface between Java and Redis. If you are using a SQL database, Java presents a standard API called JDBC (Java Database Connectivity) to communicate with databases. Feel free to use the Postgres JDBC driver provided [here](https://github.com/pgjdbc/pgjdbc) to store (and load, in future assignments) the records from the PostgreSQL database.
 
 **Adding library dependencies.**
-Add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. The snippet from `pom.xml` to add the Gson and Apache Commons libraries are shown here. Please add the Postgres JDBC dependency accordingly.
+Add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. The snippet from `pom.xml` to add the Gson and Apache Commons libraries are shown here. Please add the Jedis or Postgres JDBC dependency accordingly.
 
 ````
     <dependencies>
@@ -124,9 +123,16 @@ We will use (Gson)[https://github.com/google/gson] to parse the `input.json` fil
 While parsing the Json file, load the Json objects into the Java classes for the _Composite_ pattern designed earlier.
 Create a `Analyzer` interface class with two concrete sub-classes for the non-weighted and weighted calculations. Invoke the right analysis depending on the configuration option provided.
 
-**Storing records to Postgres database**
+**Storing records to Redis / Postgres database**
 
-Create a database called `socialmedia_db` and create one or more tables to store the posts and their replies. I will leave it up to you to decide if a single table is appropriate or two. However, ensure that each reply has a foreign key that refers to the primary key of the parent post record. 
+**_1. Redis database_**
+Design a class that handles the Redis communication. You can use the [Jedis](https://github.com/redis/jedis) library for the Redis communication.
+
+This class will assign an auto-incrementing identifier for each post and reply, and have every post with replies store the identifiers of its replies. Refer to the `HSET`, 
+`HGET,` and `HGETALL` [commands](https://redis.io/docs/latest/commands/) for how to store and fetch multi-field values. Check the `hset`, `hgetall`, and other related APIs for the [Jedis](https://www.javadoc.io/doc/redis.clients/jedis/latest/index.html) class here.
+
+**_2. PostgreSQL database_**
+If you choose to use a PostgreSQL database, first create a database called `socialmedia_db` and create one or more tables to store the posts and their replies. I will leave it up to you to decide if a single table is appropriate or two. However, ensure that each reply has a foreign key that refers to the primary key of the parent post record. 
 
 Then, design a class that handles the database communication using the Postgres JDBC driver. Make sure to design class methods that handle storing and loading the records. 
 
@@ -158,7 +164,7 @@ To make the final submission, commit your code to the Github repo and tag it. In
 2. Command to clone your repository and apply the tag.
 3. A tar-ball of your repository AND the text file.
 4. Results of the analysis.
-5. Scripts to create the Postgres SQL database and tables.
+5. Scripts to create the Postgres SQL database and tables (if applicable).
 6. You will be asked to add an instructor Github account to your repo closer to the date. Submissions which do not do this before the deadline **will not** be graded.
 
 
