@@ -1,18 +1,20 @@
 # ECS160-HW1 
-## _(Due date: 1/31)_
+## _(Due date: 1/27)_
 ## Problem 1: Basic analysis of social media posts 
 
 _Learning objectives:_ 
 1. Java basics: Encapsulation, Inheritance, File I/O, Exceptions.
 2. Testing: JUnit, continuous integration via Github Actions.
-3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces.
+3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces, SQL for relational database.
 
 _Problem Statement:_
 
-You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW1-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `top-level
-post`.
+You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW1-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `standalone post`.
 
-Your goal is to write a Java program that computes certain basic statistics for the provided posts and replies. These statistics are---the total number of posts, the average number of replies per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments for the first two statistics (total number of posts, average number of replies per post). Weighted average: The goal of the weighted average computation is to provide more weightage for longer posts. The formula for the weight of a post:
+Your goal is to write a Java program that first persists the posts and their replies in the Json file to a SQL database. You should use the [PostgreSQL](https://www.postgresql.org/download/) database for your application. 
+Make sure that every SQL record has an auto-incremented primary key, and that every reply has a foreign key to refer to its parent post's primary key.
+
+Then, your application should compute the following basic statistics for the provided posts and replies. These statistics are---the total number of posts, the average number of replies per post, and average interval between comments (for posts which have comments). Depending on an option provided on the command line (`weighted = true|false`), you will either compute a simple average, or a weighted average that depends on the length of the post or comments for the first two statistics (total number of posts, average number of replies per post). Weighted average: The goal of the weighted average computation is to provide more weightage for longer posts. The formula for the weight of a post:
 
 $Weight = (1 + (NumOfWordsInPost/NumOfWordsInLongestPost)) $
 
@@ -39,11 +41,13 @@ We will use the [IntelliJ IDE](https://www.jetbrains.com/help/idea/getting-start
 Once you have downloaded and installed IntelliJ IDE, clone the repository containing the skeleton code https://github.com/davsec-teaching/ECS160-HW1-skeleton, and open it as a project in the IntelliJ IDE.
 
 We will use [Maven](https://maven.apache.org/) to manage all library dependencies. We need a library to parse JSON files, 
-we will use Google's Gson for that. We also need a library to parse the command line options. We will use Apache Commons's CLI
+we will use Google's Gson for that, and a library to parse the command line options. We will use Apache Commons's CLI
 library for that task.
 
+Java presents a standard API called JDBC (Java Database Connectivity) to communicate with databases. Feel free to use the Postgres JDBC driver provided [here](https://github.com/pgjdbc/pgjdbc) to store (and load, in future assignments) the records from the PostgreSQL database.
+
 **Adding library dependencies.**
-Add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. 
+Add the dependencies for Gson and commons-cli to `pom.xml`. Read the [Maven tutorial](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Because we are using the IntelliJ IDE, if we click on the `Run` button, the Maven build steps will be automatically performed. The snippet from `pom.xml` to add the Gson and Apache Commons libraries are shown here. Please add the Postgres JDBC dependency accordingly.
 
 ````
     <dependencies>
@@ -120,11 +124,16 @@ We will use (Gson)[https://github.com/google/gson] to parse the `input.json` fil
 While parsing the Json file, load the Json objects into the Java classes for the _Composite_ pattern designed earlier.
 Create a `Analyzer` interface class with two concrete sub-classes for the non-weighted and weighted calculations. Invoke the right analysis depending on the configuration option provided.
 
+**Storing records to Postgres database**
+
+Create a database called `socialmedia_db` and create one or more tables to store the posts and their replies. I will leave it up to you to decide if a single table is appropriate or two. However, ensure that each reply has a foreign key that refers to the primary key of the parent post record. 
+
+Then, design a class that handles the database communication using the Postgres JDBC driver. Make sure to design class methods that handle storing and loading the records. 
 
 **Testing**
 We will write JUnit test cases for the Analysis classes designed in the previous step. Read more about JUnits [here](https://junit.org/junit5/docs/current/user-guide/).
 
-To use JUnit testing framework, we first will have to add the JUnit jar library to `pom.xml` and run `mvn clean install` in IntelliJ terminal.
+To use JUnit testing framework, we first will have to add the JUnit jar library to `pom.xml` and run `mvn clean install` in IntelliJ terminal. We will use JUnit version 5.9.3 for our purposes.
 
 ````
 <dependency>
@@ -143,10 +152,14 @@ We will add a badge indicating the status of our build to our project page. Firs
 
 **_Submission_**
 
-Please commit your code to the Github repo and tag it. In a text file specify the following:
+Please create a **PRIVATE** Github code repo and commit code regularly to it. Your commit history will play a role in your grade. 
+To make the final submission, commit your code to the Github repo and tag it. In a text file specify the following:
 1. Link to your github and tag. This link should show the "tests passed" logo.
 2. Command to clone your repository and apply the tag.
-3. Results of the analysis.
+3. A tar-ball of your repository AND the text file.
+4. Results of the analysis.
+5. Scripts to create the Postgres SQL database and tables.
+6. You will be asked to add an instructor Github account to your repo closer to the date. Submissions which do not do this before the deadline **will not** be graded.
 
 
 Your submission will be run against different (and larger) JSON files.
