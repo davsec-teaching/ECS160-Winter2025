@@ -1,6 +1,6 @@
 # ECS160-HW3
 
-## _Due date: 3/7_
+## _Due date: 2/18_
 ## Problem: Moderation, and hashtagging of social media posts
 
 _Learning objectives_
