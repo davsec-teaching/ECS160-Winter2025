@@ -131,6 +131,16 @@ Design a class that handles the Redis communication. You can use the [Jedis](htt
 This class will assign an auto-incrementing identifier for each post and reply, and have every post with replies store the identifiers of its replies. Refer to the `HSET`, 
 `HGET,` and `HGETALL` [commands](https://redis.io/docs/latest/commands/) for how to store and fetch multi-field values. Check the `hset`, `hgetall`, and other related APIs for the [Jedis](https://www.javadoc.io/doc/redis.clients/jedis/latest/index.html) class here.
 
+You can use the following code as the starting point for the communication with Redis using Jedis
+
+```
+      String key = ... ;
+      String value = ...; 
+      Jedis jedisSession = new Jedis("localhost", 6379);
+      jedisSession.set(key, value);
+```
+
+
 **_2. PostgreSQL database_**
 If you choose to use a PostgreSQL database, first create a database called `socialmedia_db` and create one or more tables to store the posts and their replies. I will leave it up to you to decide if a single table is appropriate or two. However, ensure that each reply has a foreign key that refers to the primary key of the parent post record. 
 
