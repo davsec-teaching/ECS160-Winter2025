@@ -20,7 +20,8 @@ The course has a formal prerequisite of ECS 140A, in addition to what is describ
 | **Lectures**        | MWF 9:00 AM - 9:50 AM in Wellman Hall 234              |
 | **Discussion**      | W 10 AM - 10:50 AM in Chem 179                         |
 | **Piazza**     | https://piazza.com/ucdavis/winter2024/ecs160winter2025/home               |
-| **Office Hours**    | W 1 PM - 2 PM in Academic Surge 2087                   |
+| **Instructor Office Hours**    | M 1PM - 3 PM, W 1 PM - 2 PM in Academic Surge 2087                   |
+| **TA Office Hours** | F 1:30 PM - 2:30 PM in Kemper 47. |
 
 ### Schedule
 
