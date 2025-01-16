@@ -12,7 +12,7 @@ make sure you are referring to the latest versions.
   - (`1/10`) Java and OO fundamentals ([Slides](slides/3_object_oriented_fundamentals.pptx))
 - Week 2
   - (`1/13`) **_HW 1 discussed in class_**, Java and OO fundamentals contd.
-  - (`1/15`) Java and OO fundamentals contd, Redis discussion ([Slides](slides/Discussion1_Redis.pptx))
+  - (`1/15`) Java and OO fundamentals contd, Redis discussion ([Slides](slides/Discussion1_Redis.pptx), [Demo](https://github.com/davsec-teaching/jedis-demo))
   - (`1/17`) Unit testing, mock testing, CI ([Slides](slides/4_unit_testing_mocking_frameworks_CI.pptx))
 - Week 3
   - (`1/20`) Holiday
