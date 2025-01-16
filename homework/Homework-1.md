@@ -101,11 +101,7 @@ Use the concepts of Encapsulation, Inheritance, and Recursion to model the struc
 We will use (Gson)[https://github.com/google/gson] to parse the `input.json` file. Here is some code to get you started.
 
 ```
-        URL resource = JsonDeserializer.class.getClassLoader().getResource("input.json");
-
-        JsonParser parser = new JsonParser();
-
-        JsonElement element = parser.parse(new FileReader(resource.toURI().getPath()));
+        JsonElement element = JsonParser.parseReader(new InputStreamReader(JsonDeserializer.class.getClassLoader().getResourceAsStream("input.json")));
 
         if (element.isJsonObject()) {
             JsonObject jsonObject = element.getAsJsonObject();
