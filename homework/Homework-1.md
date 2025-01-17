@@ -7,6 +7,7 @@ _Learning objectives:_
 2. Testing: JUnit, continuous integration via Github Actions.
 3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces, databases (NoSQL or SQL).
 
+_Total points: 20_
 _Problem Statement:_
 
 You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW1-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `standalone post`.
@@ -158,7 +159,7 @@ To use JUnit testing framework, we first will have to add the JUnit jar library 
 
 We will create a new class under the `tests/` directory. If your basic analyzer is called `BasicAnalyzer.java`, then the convention is that your test class should be called `BasicAnalyzerTest.java`. In that class add separate JUnit test methods to test each of the functions of the BasicAnalyzer.java class. Do the same for the weighted analysis class. Make sure to test all corner cases, such as empty posts, empty thread, _very_ long posts, and so on. We will run our own set of JUnit tests on the code, so it is in your benefit if you thoroughly test your code. Add all the required assertion checks.
 
-**_Extra Credit: 5 points_**
+**_Extra Credit: 3 points_**
 We will set up a Continuous Integration pipeline where everytime we push, the Maven actions to build and test the application are carried out. Check out [this](https://docs.github.com/en/actions/writing-workflows/quickstart) for basics of Github actions and [Github Actions: Maven](https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven) for more Maven specific information.
 
 We will add a badge indicating the status of our build to our project page. First, create a `README.md` at the top-level of the repository. Then, click on the `Actions` tab on the main project repository. Then, click on the name of the action on the left panel. In the right part of the screen, you'll see the ellipsis (...). Click on `Create status badge`. This will give you the Markdown text that you can add to the `README.md`.
