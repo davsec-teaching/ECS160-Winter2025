@@ -1,5 +1,5 @@
 # ECS160-HW1 
-## _(Due date: 1/27)_
+## _(Due date: 1/31)_
 ## Problem 1: Basic analysis of social media posts 
 
 _Learning objectives:_ 
@@ -158,6 +158,7 @@ To use JUnit testing framework, we first will have to add the JUnit jar library 
 
 We will create a new class under the `tests/` directory. If your basic analyzer is called `BasicAnalyzer.java`, then the convention is that your test class should be called `BasicAnalyzerTest.java`. In that class add separate JUnit test methods to test each of the functions of the BasicAnalyzer.java class. Do the same for the weighted analysis class. Make sure to test all corner cases, such as empty posts, empty thread, _very_ long posts, and so on. We will run our own set of JUnit tests on the code, so it is in your benefit if you thoroughly test your code. Add all the required assertion checks.
 
+**_Extra Credit: 5 points_**
 We will set up a Continuous Integration pipeline where everytime we push, the Maven actions to build and test the application are carried out. Check out [this](https://docs.github.com/en/actions/writing-workflows/quickstart) for basics of Github actions and [Github Actions: Maven](https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven) for more Maven specific information.
 
 We will add a badge indicating the status of our build to our project page. First, create a `README.md` at the top-level of the repository. Then, click on the `Actions` tab on the main project repository. Then, click on the name of the action on the left panel. In the right part of the screen, you'll see the ellipsis (...). Click on `Create status badge`. This will give you the Markdown text that you can add to the `README.md`.
