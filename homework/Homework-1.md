@@ -8,6 +8,7 @@ _Learning objectives:_
 3. Tools and libraries: Maven, adding dependencies to `pom.xml`, Gson for parsing JSON files, Apache's Common CLI for parsing command line interfaces, databases (NoSQL or SQL).
 
 _Total points: 20_
+
 _Problem Statement:_
 
 You are provided with an `input.json` file located [here](https://github.com/davsec-teaching/ECS160-HW1-skeleton/blob/master/src/main/resources/input.json) that consists of thousands of social media posts from [Bluesky](https://bsky.app). Every post can contain one of more replies. If a post does not have any reply we will call it a `standalone post`.
