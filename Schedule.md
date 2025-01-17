@@ -42,5 +42,5 @@ make sure you are referring to the latest versions.
 - Week 10
   - (`3/10`) **_HW 3 due, Extra Credit HW4 discussed_**
   - (`3/10`, `3/12`) Fuzz testing ([Slides](slides/10_fuzzing.pptx))
-  - (`3/14`) Revision **_HW 4 due_**
-- (`3/21`) **Final**, 
+  - (`3/14`) Revision 
+- (`3/21`) **Final**, **_Extra Credit HW 4 due_**
