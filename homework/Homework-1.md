@@ -37,7 +37,7 @@ $WeightedAvgNumReplies = (\sum_{n=1}^N (\sum_{m=1}^M (Weight_m) ) / N $
 
 Here, $N$ is the total number of posts, $M$ is the total replies of post $n$. $Weight_m$ is the weight of the reply $m$. 
 
-The full path of the `input.json` file will also optionally be provided on the command line. If no option is provided, then the `input.json` file provided in `src/resources/input.json` should be used.
+The full path of the `input.json` file will also optionally be provided on the command line (`file=<absolute_file_path>`). If no option is provided, then the `input.json` file provided in `src/resources/input.json` should be used.
 
 **Getting started**
 We will use the [IntelliJ IDE](https://www.jetbrains.com/help/idea/getting-started.html) for all our development, testing, and deployment tasks. Make sure to download and install the Community Edition. 
