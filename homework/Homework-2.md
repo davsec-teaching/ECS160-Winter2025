@@ -29,7 +29,7 @@ This persistence framework will provide the following annotations -
 2. `@PersistableField` - For every class annotated with `@Persistable`, only the fields annotated with `@PersistableField` are saved in the Redis database. Note that the field _must_ be private. You will lose points, if you change the field to `public`.
 3. `@PersistableId` - Denotes that this field is the ID of the class. This will also act as the "key" in Redis's data-store.
 4. `@PersistableListField` - This annotation represents a field which is a `List`. This annotation should support a field `className`. This field will contain the fully qualified class name of the list element object types.
-5. [optional] `@LazyLoad` - If supporting lazy loading for extra credit, this annotation will indicate that the field is lazy loaded.
+5. [**_Extra credit_**] `@LazyLoad` - If supporting lazy loading for extra credit, this annotation will indicate that the field is lazy loaded.
 
 For example:
 
