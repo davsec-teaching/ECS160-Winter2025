@@ -124,7 +124,7 @@ Hints -
 
 **Getting started**
 
-You will follow the same steps to setup your project by cloning the skeleton repo **_[TBD]_**. Add all the dependencies in `pom.xml` from the previous assignment that you think will be useful in this assignment. 
+You will follow the same steps to setup your project by cloning the skeleton repo [here](https://github.com/davsec-teaching/ECS160-HW2-skeleton). Add all the dependencies in `pom.xml` from the previous assignment that you think will be useful in this assignment. 
 Make sure your Redis server is listening to port `6379`. If implementing the lazy loading for extra credit, please also add the Javassist library to pom.xml.
 
 
