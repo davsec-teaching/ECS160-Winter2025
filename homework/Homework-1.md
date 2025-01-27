@@ -171,13 +171,13 @@ We will add a badge indicating the status of our build to our project page. Firs
 **_Submission_**
 
 Please create a **PRIVATE** Github code repo and commit code regularly to it. Your commit history will play a role in your grade. 
-To make the final submission, commit your code to the Github repo and tag it. In a text file specify the following:
-1. Link to your github and tag. This link should show the "tests passed" logo.
-2. Command to clone your repository and apply the tag.
-3. A tar-ball of your repository AND the text file.
-4. Results of the analysis.
-5. Scripts to create the Postgres SQL database and tables (if applicable).
-6. You will be asked to add an instructor Github account to your repo closer to the date. Submissions which do not do this before the deadline **will not** be graded.
+To make the final submission, commit your code to the Github repo and tag it. In a text/doc file specify the following:
+1. Link to your Github repository. This link should show the "tests passed" logo.
+2. Scripts to create the Postgres SQL database and tables (if applicable).
+3. If performing the extra credit - screenshots of your Github action running and passing, as well as the screenshot of the first page of your repository showing the Tests-passing badge.
+4. Download your repository as a zip file and add the above doc/text file to the zip file.
+5. Upload on Canvas by due date.
+6. Check the piazza post for more information.
 
 
 Your submission will be run against different (and larger) JSON files.
