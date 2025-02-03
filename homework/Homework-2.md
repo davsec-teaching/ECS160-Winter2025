@@ -95,6 +95,7 @@ The following is the main class functionality.
 ```
 
 The exact formatting isn't important, but it should be easy to determine which is the post and which are the replies. 
+
 7. **For extra credit: ** Because the `replies` field in `Post` is marked as `Lazy`, `load` should only load the post message and not the replies. The program should ask the user if it should continue to load the replies. If the programmer presses any key, it should load the replies and print them on the command line. 
 
 **Extra Credit (10 points): Lazy loading with `@LazyLoad`**
@@ -107,13 +108,7 @@ For example, in the case of the `Post` class, where the `replies` field is annot
 
 Hints - 
 1. You want to create and return a dynamic proxy when loading an object that contains a `@LazyLoad` annotation. You can create a `Javassist` proxy as discussed in class (refer to slide), for this purpose.
-2. In the `MethodHandler` method, override `invoke` to
-   - Check if the method is a getter
-   - Extract the name of the field from the getter
-   - Get the `java.reflect.Field` object for that field
-   - Check if it has the `@LazyLoad` annotation
-   - If it does, then invoke the `session.load()` on each element in the list, which is the value of the field
-3. You can completely ignore performance for this assignment.
+2. You can completely ignore performance for this assignment.
    
 **Grading**
 
