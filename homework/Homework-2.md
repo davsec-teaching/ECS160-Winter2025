@@ -18,7 +18,7 @@ Just as in the previous assignment, you will parse the JSON file and create Java
 2. `postContent` (of type String)
 3. `replies` (of type List<Post>)
 
-If your Post class from the previous assignment does not have this structure, please modify it to use this structure. Also, this assignment assumes that you are somehow keeping a reference from the post to its replies in the Redis data-store. For example, you could append all the reply Ids into a comma-separated string and store them with a `replyIds` key. If your code doesn't currently do this, please modify it to do this.
+If your Post class from the previous assignment does not have this structure, please modify it to use this structure. Also, this assignment assumes that you are keeping a reference from the post to its replies in the Redis data-store in the follow way - you are appending all the reply Ids into a comma-separated string and store them with a `replyIds` key. If your code doesn't currently do this, please modify it to do this.
 
 This assignment's goal is to develop a Redis persistence framework that can persist and load objects of _any_ type, and test it with the posts and replies from the JSON file. Your persistence framework will be in a separate Java pacakge named `com.ecs160.persistence`. All annotations and the `Session` class (described below) should be inside this package.
 
