@@ -95,6 +95,7 @@ The following is the main class functionality.
 ```
 
 The exact formatting isn't important, but it should be easy to determine which is the post and which are the replies. 
+
 7. **For extra credit: ** Because the `replies` field in `Post` is marked as `Lazy`, `load` should only load the post message and not the replies. The program should ask the user if it should continue to load the replies. If the programmer presses any key, it should load the replies and print them on the command line. 
 
 **Extra Credit (10 points): Lazy loading with `@LazyLoad`**
