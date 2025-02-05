@@ -28,7 +28,7 @@ This persistence framework will provide the following annotations -
 1. `@Persistable` - If a programmer marks any class with this annotation it should be saveable in a Redis database. 
 2. `@PersistableField` - For every class annotated with `@Persistable`, only the fields annotated with `@PersistableField` are saved in the Redis database. Note that the field _must_ be private. You will lose points, if you change the field to `public`.
 3. `@PersistableId` - Denotes that this field is the ID of the class. This will also act as the "key" in Redis's data-store.
-4. `@PersistableListField` - This annotation represents a field which is a `List`. This annotation should support a field `className`. This field will contain the fully qualified class name of the list element object types.
+4. `@PersistableListField` - This annotation represents a field which is a `List`. This annotation should support a field `className`. This field will contain the fully qualified class name of the list element object types. 
 5. [**_Extra credit_**] `@LazyLoad` - If supporting lazy loading for extra credit, this annotation will indicate that the field is lazy loaded.
 
 For example:
@@ -61,8 +61,8 @@ public class MyClass {
 
 You should create a class `Session` in the `com.ecs160.persistence` package. This class will contain the Redis persistence code (using Jedis). This class should support the following two functions - 
 1. `void add(Object obj)` - This method should add an object to the `Session`, but not persist it until `persistAll()` is invoked.
-2. `void persistAll()` - This method will persist all the objects added to the `Session`.
-3. `Object load(Object object)` - This method will accept an Object with only the field annotated `@PersistableId` populated and load the entire object from the Redis database (the field annotated with `@PersistableId` is the key in the Redis data-store).
+2. `void persistAll()` - This method will persist all the objects added to the `Session`. During this operation, if a field is annotated with `@PersistableListField`, for each list item, the corresponding field annotated as `@PersistableId` should be extracted and appended to a comma-separated string, and then stored in Redis by the persistence framework.
+3. `Object load(Object object)` - This method will accept an Object with only the field annotated `@PersistableId` populated and load the entire object from the Redis database (the field annotated with `@PersistableId` is the key in the Redis data-store). In the case of fields annotated as `@PersistableListField`, these fields will be stored in a comma-separated string form in the Redis data-store, as described above.
 4. **Extra credit (10 points)** - The  `load()` method should lazily load the fields marked with the annotation `@LazyLoad`. Please check the instructions under "Lazy Loading" for more information.
 
 **Assumptions**
