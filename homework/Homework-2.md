@@ -55,7 +55,7 @@ public class MyClass {
 }
 ```
 
-**Important:** - No class/annotation/interface in the `com.ecs160.persistence` package should contain any logic that is specific to the `Post` type. All accesses and updates must be performed using reflection and/or proxies.
+**Important:** - No class/annotation/interface in the `com.ecs160.persistence` package should contain any logic that is specific to the `Post` type. Similarly, no logic related to persistence should be in the the `Post` type. All accesses and updates must be performed using reflection and/or proxies.
 
 **Session class**
 
