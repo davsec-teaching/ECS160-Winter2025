@@ -142,4 +142,6 @@ Then, follow the instructions [here](https://github.com/ollama/ollama?tab=readme
 
 We will use the [Ollama4j](https://ollama4j.github.io) library to invoke the LLM from our Hashtagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a hashtag for this social media post` followed by the post itself.
 
+**Submission instructions**
 
+Your final submission will consist of three projects - two microservices and one main application that invokes these microservices. Please zip these projects together into a single Zip file and upload on Canvas. 
