@@ -19,8 +19,9 @@ _Necessary background knowledge_
 
 _Problem Statement_
 
-You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Just as in HW1 and HW2 you will parse these social media posts into Java classes. (You can reuse the code you have 
-But this time instead of running basic statistical analysis on these posts, you will design a pipeline of microservices that consists of the two microservices described. Each microservice will take the contents of a single message as input and process it,
+You are provided with an `input.json` file that consists of thousands of social media posts from [Bluesky](www.bsky.app). Just as in HW1 and HW2 you will parse these social media posts into Java classes. As in HW2, you can ignore replies of replies.
+You can reuse the code you already have, but
+this time instead of running basic statistical analysis on these posts, you will design a pipeline of microservices that consists of the two microservices described. Each microservice will take the contents of a single message as input and process it,
 depending on the functionality of the microservice.
 
 - Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service should return `FAILED` if the post content fails the moderation. If it succeeds, it should forward the request to the next microservice and will ultimately return the
@@ -28,6 +29,14 @@ results of the second microservice to the client.
 - Microservice 2: A hashtagging service that will analyze the contents of the post and tag the post with a hashtag, like `#vacation` and `#happy`. You will invoke a locally running instance of [LLAMA-3](https://www.llama.com/) for the analysis (more later).
 
 You will execute the pipeline on the top-10 most-liked top-level posts in `input.json`. For each of these ten top-level posts, you will send individual requests for both the post and any of its replies to the microservice. In other words, make sure to execute the pipeline on the 10 most-liked posts _and_ their replies.
+The output of the pipeline will either by `FAILED` or the hashtag. If the LLM refuses to generate a hashtag for some reason, you can tag it a default tag such as `#bskypost`. In case any post or reply fails the moderation, display it as `[DELETED]`. For other posts and replies, append the hashtag to the post/reply content. For example, if the top-level post and one of its replies fails the moderation, you would display it as follows. 
+
+```
+[DELETED]
+--> reply content #sample_hashtag1
+--> reply content #sample_hashtag2
+--> [DELETED] 
+```
 
 **Implementing a microservice**
 
