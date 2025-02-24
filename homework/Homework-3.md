@@ -24,7 +24,7 @@ You can reuse the code you already have, but
 this time instead of running basic statistical analysis on these posts, you will design a pipeline of microservices that consists of the two microservices described. Each microservice will take the contents of a single message as input and process it,
 depending on the functionality of the microservice.
 
-- Microservice 1: A moderation service that checks the contents of the post against a list of "bad words." The moderation service should return `FAILED` if the post content fails the moderation. If it succeeds, it should forward the request to the next microservice and will ultimately return the
+- Microservice 1: A moderation service that checks the contents of the post against a list of "banned words" listed at the end of the asssingment. The moderation service should return `FAILED` if the post content fails the moderation. If it succeeds, it should forward the request to the next microservice and will ultimately return the
 results of the second microservice to the client.
 - Microservice 2: A hashtagging service that will analyze the contents of the post and tag the post with a hashtag, like `#vacation` and `#happy`. You will invoke a locally running instance of [LLAMA-3](https://www.llama.com/) for the analysis (more later).
 
@@ -151,6 +151,17 @@ Then, follow the instructions [here](https://github.com/ollama/ollama?tab=readme
 
 We will use the [Ollama4j](https://ollama4j.github.io) library to invoke the LLM from our Hashtagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a hashtag for this social media post` followed by the post itself.
 
+**List of banned words**
+1. illegal
+2. fraud
+3. scam
+4. exploit
+5. dox
+6. swatting
+7. hack
+8. crypto
+9. bots
+     
 **Submission instructions**
 
 Your final submission will consist of three projects - two microservices and one main application that invokes these microservices. Please zip these projects together into a single Zip file and upload on Canvas. 
