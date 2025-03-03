@@ -149,7 +149,7 @@ run the LLAMA-3 model locally. Then we will query this model and ask it to hasht
 First install ollama from [here](https://ollama.com/download). 
 Then, follow the instructions [here](https://github.com/ollama/ollama?tab=readme-ov-file#quickstart) to download the LLAMA-3 model on your local machine. 
 
-We will use the [Ollama4j](https://ollama4j.github.io) library to invoke the LLM from our Hashtagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a hashtag for this social media post` followed by the post itself.
+We will use the [Ollama4j](https://github.com/ollama4j/ollama4j) library to invoke the LLM from our Hashtagging microservice. The instructions for how to add the Maven dependency and how to invoke the LLM from Java code is available in the library's documentation. Make sure that the prompt you send has a directive such as `Please generate a hashtag for this social media post` followed by the post itself.
 
 **List of banned words**
 1. illegal
