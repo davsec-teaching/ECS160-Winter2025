@@ -135,8 +135,9 @@ curl -X POST http://localhost:30000/moderate -H "Content-type: application/json"
 
 Develop the second microservice the same way as the first. Create a separate project for it and assign it a different port. The moderation microservice should invoke the hashtagging microservice only if the moderation passes.
 
-To chain the microservices we need to invoke the second microservice from the first. We will use the `HttpClient` provided by the Java standard libraries to invoke the second microservice from the first. Sample code
-for that is as follows. Remember that we need to send a Json request formatted as `{"postContent": "This is a sample post"}` over HTTP Post. Check out the tutorial [here](https://openjdk.org/groups/net/httpclient/intro.html) for documentation on how to use `HttpClient`. As always add JUnit test cases for your microservices and verify that they pass.
+To chain the microservices we need to invoke the second microservice from the first. We can use the `HttpClient` provided by the Java standard libraries to invoke the second microservice from the first. Sample code
+for that is as follows. Remember that we need to send a Json request formatted as `{"postContent": "This is a sample post"}` over HTTP Post. Check out the tutorial [here](https://openjdk.org/groups/net/httpclient/intro.html) for documentation on how to use `HttpClient`. You are welcome to use any other library or RPC library. 
+As always add JUnit test cases for your microservices and verify that they pass.
 
 Invoke the client using `curl` as shown above. This time it might print `#security` if the post contains a security-related keyword. And finally, write a third Java application that will invoke this microservice
 pipeline for each of the most-liked posts in `input.json`.
