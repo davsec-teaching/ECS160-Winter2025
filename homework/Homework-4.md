@@ -27,7 +27,7 @@ should you use?)_
 use?)_
 
 3. Use design patterns to compute the statistics. These design pattern classes should visit each post and reply for all top-level posts and threads in `input.json` and compute the required statistic. _(Which design
-pattern should you use? How many classes did you create? Can you reduce the number of classes created using another design pattern? What was the final number of classes you had to create?_)
+pattern should you use? How many classes did you create?_)
 
 #### Extend HW1
 
@@ -39,4 +39,4 @@ that donot have a hashtag.
 You do not have to develop a microservice for this homework.
 
 **_Submission_**
-You will submit the code, the repository link with the branch, and a document outlining the design pattern you chose for each of these cases and why you chose them. 
+You will submit the code, and a document outlining the design pattern you chose for each of these cases and why you chose them. 
