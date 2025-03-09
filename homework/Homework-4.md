@@ -1,4 +1,4 @@
-# ECS160-HW4 (Extra credit)
+# ECS160-HW4 (Extra credit - 10 points)
 
 ## _Due date: 3/21_
 ## Problem: Redesign and extend HW1 using design patterns
