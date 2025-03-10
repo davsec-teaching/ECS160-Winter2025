@@ -16,7 +16,7 @@ In this homework assignment, you will redesign HW1 using your knowledge of desig
 
 ### Requirements
 The following are the requirements. You can reuse the skeleton code from HW1 and HW3, and like in the previous
-homeworks, you can use the `input.json` file provided as input. You can ignore _all_ replies and only consider the top-level posts for this assignment.
+homeworks, you can use the `input.json` file provided as input. You can ignore _all_ replies and only consider the top-level posts and their immediate replies for this assignment (no need to consider reply-of-replies).
 
 #### Redesign HW1 
 1. Ensure that the application can accept two configuration options---1) analysis type (weighted, non-weighted), and 2) the name of the JSON file. Store these configuration options in a class. Using a design pattern
