@@ -34,7 +34,7 @@ Lectures will be recorded (TBD discussions).
 
 ### Grading
 
-Grading will be broken down as follows.
+Grading will be broken down as follows. Please note that the Canvas grades are typically not weighted, so please use the following weightage when computing your grade. 
 
 | **Grading component**          | **Weightage**                                                                 |
 |----------------------|---------------------------------------------------------------------------------|
@@ -45,7 +45,7 @@ Grading will be broken down as follows.
 
 The midterm and final will be in-class and closed book. The assignments will be performed in groups of 2.
 
-The grade cutoffs will be as follows. Grades might be curved on top of these cutoffs, but you will always get _at least_ the grade mentioned in the table below if you score the required percentage.
+The grade cutoffs will be as follows. Grades cutoffs might be lowered further, but you will always get _at least_ the grade mentioned in the table below if you score the required percentage. 
 
 | **Percentage**          | **Grade**                                                                 |
 |----------------------|---------------------------------------------------------------------------------|
